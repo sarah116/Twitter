@@ -73,6 +73,7 @@ public class TwitterPorukaTest {
 	 */
 	@Test
 	public void testToString() {
-					}
+		
+	}
 
 }
