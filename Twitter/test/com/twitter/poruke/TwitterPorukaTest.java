@@ -14,7 +14,7 @@ import org.junit.Test;
 public class TwitterPorukaTest {
 	
 	private TwitterPoruka poruka;
-	private TwitterPoruka korisnik;
+	
 
 	/**
 	 * @throws java.lang.Exception
@@ -24,7 +24,7 @@ public class TwitterPorukaTest {
 	public void setUp() throws Exception {
 		
 		poruka=new TwitterPoruka();
-		korisnik=new TwitterPoruka();
+		
 		
 	}
 
@@ -34,7 +34,7 @@ public class TwitterPorukaTest {
 	@After
 	public void tearDown() throws Exception {
 		poruka=null;
-		korisnik=null;
+		
 	}
 
 	/**
@@ -44,14 +44,14 @@ public class TwitterPorukaTest {
 	public void testSetKorisnik() {
 		
 		
-		korisnik.setKorisnik("Zika");
-		assertEquals("Zika", korisnik.getKorisnik());
+		poruka.setKorisnik("Zika");
+		assertEquals("Zika", poruka.getKorisnik());
 	
 	}
 	
 	@Test (expected = java.lang.RuntimeException.class)
 	public void testSetKorisnikNull() {
-		korisnik.setKorisnik(null);
+		poruka.setKorisnik(null);
 	}
 
 	/**
@@ -73,6 +73,9 @@ public class TwitterPorukaTest {
 	 */
 	@Test
 	public void testToString() {
+		poruka.setKorisnik("Jovan");
+		poruka.setPoruka("Pada sneg");
+		assertEquals("KORISNIK:" + "Jovan" + " PORUKA:" + "Pada sneg",poruka.toString());
 		
 	}
 
