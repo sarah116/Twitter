@@ -53,6 +53,13 @@ public class TwitterPorukaTest {
 	public void testSetKorisnikNull() {
 		poruka.setKorisnik(null);
 	}
+	
+	@Test (expected = java.lang.RuntimeException.class)
+	public void testSetKorisnikPrazanString() {
+		poruka.setKorisnik("");
+	}
+	
+
 
 	/**
 	 * Test method for {@link com.twitter.poruke.TwitterPoruka#setPoruka(java.lang.String)}.
@@ -61,6 +68,17 @@ public class TwitterPorukaTest {
 	public void testSetPoruka() {
 		poruka.setPoruka("Lep dan danas.");
 		assertEquals("Lep dan danas.", poruka.getPoruka());
+		
+	}
+	
+	@Test (expected = java.lang.RuntimeException.class)
+	public void testSetPorukaDugo() {
+		String porukica="sgkdfkjsjfhslfhlhdkkvnd" +
+				   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+				   "hilfadghhdjhfteugudcksmlsmdsdls" +
+				   "gfwjfjdfidjtshisgdnfsfnfnsfsfa" + 
+				   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+		poruka.setPoruka(porukica);
 	}
 	
 	@Test (expected = java.lang.RuntimeException.class)

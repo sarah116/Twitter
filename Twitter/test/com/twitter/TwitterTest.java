@@ -2,6 +2,7 @@ package com.twitter;
 
 import static org.junit.Assert.*;
 
+
 import java.util.LinkedList;
 
 import org.junit.After;
@@ -31,6 +32,21 @@ public class TwitterTest {
 		lista=null;
 	}
 
+	@Test
+	public void testVratiSvePoruke() {
+		
+		
+		assertEquals(lista, tviter.vratiSvePoruke());		
+	}
+	
+	public void testVratiSvePoruke2() {
+		por.setKorisnik("Pera Peric");
+		por.setPoruka("Tmuran dan");
+		
+		lista.addLast(por);
+		
+		assertEquals(lista, tviter.vratiSvePoruke());
+	}
 
 
 	@Test
@@ -38,8 +54,9 @@ public class TwitterTest {
 		por.setKorisnik("Mika");
 		por.setPoruka("Pada kisa danas");
 		tviter.unesi(por.getKorisnik(), por.getPoruka());
-		
 		lista.addLast(por);
+		
+		
 		assertEquals(lista, tviter.vratiSvePoruke());
 	}
 
@@ -70,13 +87,25 @@ public class TwitterTest {
 		
 	}
 	
+	@Test (expected = java.lang.RuntimeException.class)
+	public void testVratiPorukeTagNull() {
+		tviter.vratiPoruke(4, null);
+	
+	}
+	
+	
+	public void testVratiPorukeMaxBroj() {
+		tviter.vratiPoruke(-1, "dan");
+	
+	}
+	
+	@Test (expected = java.lang.RuntimeException.class)
+	public void testVratiPorukePrazanString() {
+		tviter.vratiPoruke(3, "");
+	
+	}
+	
 
 	
-	@Test
-	public void testVratiSvePoruke() {
-		
-		
-		assertEquals(lista, tviter.vratiSvePoruke());
-		
-	}
+	
 }

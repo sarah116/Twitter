@@ -1,7 +1,7 @@
 package com.twitter.poruke;
 
 /**
- * 
+ * Klasa koja predstavlja Twitter poruku.
  * @author Sara
  * @version 1.0 prva verzija koda
  * 
@@ -10,19 +10,20 @@ package com.twitter.poruke;
 public class TwitterPoruka {
 
 	/**
-	 * U klasu ubaceni atributi:
-	 * <ul>
-	 * <li>korisnik
-	 * <li>poruka
-	 * </ul>
+	 * Atribut korisnik Twittera
 	 */
 
 	private String korisnik;
+	
+	/**
+	 * Atribut poruka korisnika Twittera
+	 */
+
 	private String poruka;
 
 	/**
 	 * 
-	 * @return metoda vraca vrednost atributa korisnik
+	 * @return korisnik vrednost atributa korisnik kao String
 	 */
 
 	public String getKorisnik() {
@@ -30,9 +31,10 @@ public class TwitterPoruka {
 	}
 
 	/**
-	 * 
-	 * @param korisnik
-	 *            metoda podesava vrednost atributa korisnik na unetu vrednost
+	 *   Metoda podesava vrednost atributa korisnik na unetu vrednost.
+	 * @param korisnik postavlja novu vrednost atributa
+	 * @throws java.lang.RuntimeException  ako je uneto ime korisnika null ili prazan String
+	 *          
 	 */
 
 	public void setKorisnik(String korisnik) {
@@ -42,8 +44,8 @@ public class TwitterPoruka {
 	}
 
 	/**
-	 * 
-	 * @return metoda vraca vrednost atributa poruka
+	 * Metoda vraca vrednost atributa poruka
+	 * @return poruka na Twitteru kao String
 	 */
 
 	public String getPoruka() {
@@ -51,9 +53,10 @@ public class TwitterPoruka {
 	}
 
 	/**
-	 * 
-	 * @param poruka
-	 *            metoda podesava vrednost atributa poruka na unetu vrednost
+	 * Metoda podesava vrednost atributa poruka na unetu vrednost.
+	 * @param poruka na Twitteru kao String
+	 * @throws java.lang.RuntimeException ako je uneta vrednost poruke null ili duza od 140 karaktera
+	 *           
 	 */
 
 	public void setPoruka(String poruka) {
@@ -64,10 +67,26 @@ public class TwitterPoruka {
 	}
 
 	/**
-	 * toString metoda za atribute korisnik i poruka
+	 * Metoda vraca atribute korisnik i poruka kao String
+	 * return String korisnika i njegove poruke na Twitteru
 	 */
 
 	public String toString() {
 		return "KORISNIK:" + korisnik + " PORUKA:" + poruka;
+	}
+	
+	public boolean equals(Object o) {
+		if (o instanceof TwitterPoruka) {
+			TwitterPoruka tvitpor = (TwitterPoruka) (o);
+	
+			if(korisnik.equals(tvitpor.getKorisnik()) && poruka.equals(tvitpor.getPoruka())) {
+				return true;
+			}
+			else { 
+				return false;
+			}
+		} else {
+			return false;
+		}
 	}
 }

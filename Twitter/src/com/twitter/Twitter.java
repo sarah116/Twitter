@@ -5,8 +5,8 @@ import java.util.LinkedList;
 import com.twitter.poruke.TwitterPoruka;
 
 /**
- * 
- * @author Sara klasa koja koristi kao listu klasu TwitterPoruke
+ * Twitter klasa služi za unošenje nove poruke, vraćanje svih poruka ili poruka sa odgovarajući tag.
+ * @author Sara  
  */
 
 public class Twitter {
@@ -18,8 +18,8 @@ public class Twitter {
 	private LinkedList<TwitterPoruka> poruke = new LinkedList<TwitterPoruka>();
 
 	/**
-	 * 
-	 * @return metoda koja vraca listu poruke
+	 * metoda koja vraca listu svih poruka
+	 * @return poruke kao listu
 	 */
 
 	public LinkedList<TwitterPoruka> vratiSvePoruke() {
@@ -27,11 +27,11 @@ public class Twitter {
 	}
 
 	/**
+	 *  metoda unosi korisnika i poruku u listu, i to na kraj.
+	 * @param korisnik cija je poruka uneta
+	 * @param poruka korisnika Twittera
 	 * 
-	 * @param korisnik
-	 * @param poruka
-	 * 
-	 *            metoda unosi korisnika i poruku u listu, i to na kraj.
+	 *           
 	 */
 
 	public void unesi(String korisnik, String poruka) {
@@ -44,13 +44,13 @@ public class Twitter {
 	}
 
 	/**
+	 *   metoda koja vraca niz poruka koje sadrze tag, i to do maxBroj ogranicenja.
+	 * @param maxBroj gornja granica
+	 * @param tag deo reci koji treba da sadrzi poruka
+	 * @return lista poruka sa tagom
+	 * @throws java.lang.RuntimeException kada je tag null ili je prazan
 	 * 
-	 * @param maxBroj
-	 * @param tag
-	 * @return
-	 * 
-	 *         metoda koja vraca niz poruka koje sadrze tag, i to do maxBroj
-	 *         ogranicenja
+	 *       
 	 */
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
 		if (tag == null || tag.isEmpty())
